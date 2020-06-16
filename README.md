@@ -73,5 +73,60 @@ def split_into_sents(self, review):
                     sents.append(sentence[start: counter])
                 start = counter + 1
             counter += 1
+        if counter > start:
+            sents.append(sentence[start: counter])
     return sents
 ```
+
+#### Feature Extraction
+***
+
+**Feature Extraction** is pretty important in my use case, cause i am doing **ASPECT BASED SENTIMENT ANALYSIS**.
+
+Aspect Based Sentiment Analysis means extracting Entities and Features from statements, such that we could map features to entities, but could still calculate the polarity of that sentence.
+
+>>
+    > It is important in case of **Restaurant Reviews based Sentiment Analysis Model**, cause then we would be able to identify what **FEATURES** people **LIKED** or **DISLIKED** in which **ENTITIES** 
+>>
+
+
+**How it's been done ?**
+***
+
+It starts with an assumption, that kind of works in most cases,
+>>
+    >**ENTITIES** are **nouns** in the sentences, irrespective of whether they are used as a _subject_, _object_ or a _complement_.
+    >
+    >**FEATURES** are **adjectives** or sometimes **verbs** in sentences as these words would reflect what message is being coveyed about those **ENTITIES**
+>>
+
+Following the assumption, i just extracted entities and features
+
+```py
+    def feature_extraction(self, custom_sent):
+        features = {}
+        
+        nouns = []
+        verbs = []
+        adj = []
+        
+        # 92 -> NOUN, 96 -> Proper Noun
+        # 95 -> PRONOUN
+        # 86 -> AdVerb
+        # 84 -> Adjective
+        # 100 -> VERB
+        # 87 -> AUX. VERB
+        # 94 -> Partition (mostly used alongside AUX. VERB)
+        for token in custom_sent:
+            if token.pos in [92, 96]:
+                nouns.append(token.lemma_)
+            elif token.pos in [84, 86]:
+                adj.append(token.lemma_)
+            elif token.pos in [100, 87, 94]:
+                verbs.append(token.lemma_)
+        return { 
+            "entity": ', '.join(nouns),
+            "features": ' '.join(adj) if len(adj) > 0 else ' '.join(verbs)
+        }              
+```
+
