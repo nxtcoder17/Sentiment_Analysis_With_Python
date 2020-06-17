@@ -95,9 +95,9 @@ Aspect Based Sentiment Analysis means extracting Entities and Features from stat
 
 It starts with an assumption, that kind of works in most cases,
 >>
-    >**ENTITIES** are **nouns** in the sentences, irrespective of whether they are used as a _subject_, _object_ or a _complement_.
+    > **ENTITIES** are **nouns** in the sentences, irrespective of whether they are used as a _subject_, _object_ or a _complement_.
     >
-    >**FEATURES** are **adjectives** or sometimes **verbs** in sentences as these words would reflect what message is being coveyed about those **ENTITIES**
+    > **FEATURES** are **adjectives** or sometimes **verbs** in sentences as these words would reflect what message is being coveyed about those **ENTITIES**
 >>
 
 Following the assumption, i just extracted entities and features
@@ -142,14 +142,14 @@ Following the assumption, i just extracted entities and features
 
 **Bias** are ERRORs from WRONG Assumptions in the learning algorithm
 >>
-    >High Bias means Underfitting, as more BIAS would mean more WRONG algorithms
-    >Low Bias means Overfitting, as low BIAS would mean algorithm too fit on training data
+    > High Bias means Underfitting, as more BIAS would mean more WRONG algorithms
+    > Low Bias means Overfitting, as low BIAS would mean algorithm too fit on training data
 >>
 
 **Variance** are algorithm's sensitivity to Noise in Training Data
 >>
-    >High Variance means it modelled more NOISE from training data too, so OVERFITTING
-    >Lower the variance better the algorithm
+    > High Variance means it modelled more NOISE from training data too, so OVERFITTING
+    > Lower the variance better the algorithm
 >>
 
 
