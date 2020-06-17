@@ -131,3 +131,34 @@ Following the assumption, i just extracted entities and features
 ```
 
 ### Trying out with Various ML Models
+
+#### Some Common Terms
+
+**Term Frequency (TF):** It refers to how often a term is present in a document. 
+` TF = Number of times a term is present / Total No. of TERMS in that document `
+
+**Inverse Document Frequency (IDF):** It measures how important a term is in a collection or corpus 
+` IDF = log_e(Total No. of Documents / No. of Documents that contain the term) `
+
+**Bias** are ERRORs from WRONG Assumptions in the learning algorithm
+>>
+    >High Bias means Underfitting, as more BIAS would mean more WRONG algorithms
+    >Low Bias means Overfitting, as low BIAS would mean algorithm too fit on training data
+>>
+
+**Variance** are algorithm's sensitivity to Noise in Training Data
+>>
+    >High Variance means it modelled more NOISE from training data too, so OVERFITTING
+    >Lower the variance better the algorithm
+>>
+
+
+**Bayes Theorem:** says presence of a particular feature is unrelated to the presence of any other feature in an entity
+
+**We used MultinomialNB in our use case, cause it works better with TF-IDF**
+
+**Random Forest Model** uses a collection of Decision Trees, which follow a series of YES/NO Questions to come to a conclusion
+
+**K-Nearest Neighbors** is a statistical modelling of classification that groups K features together to form heaps of classifications
+
+**Support Vector Machines** works amazing on two-group classification problems, it uses a HyperPlanes to separate one group from another
